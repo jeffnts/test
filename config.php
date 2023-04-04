@@ -1,10 +1,10 @@
 <?php
-	$dbHost = 'Localhost';
-	$dbUsername = 'root';
-	$dbPassowrd = '';
-	$dbName = 'test';
+	$dbHost = getenv('DB_HOST')? getenv('DB_HOST'): 'Localhost';
+	$dbUsername = getenv('DB_USERNAME')? getenv('DB_USERNAME'): 'root';
+	$dbPassword = getenv('DB_PASSWORD')? getenv('DB_PASSWORD'): '';
+	$dbName = getenv('DB_NAME')? getenv('DB_NAME'): 'test';
 
-	$conexao = new mysqli($dbHost, $dbUsername, $dbPassowrd, $dbName);
+	$conexao = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
 	$criaTabelaUsuario = "CREATE TABLE IF NOT EXISTS usuarios (
 		id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
